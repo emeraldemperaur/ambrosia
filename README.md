@@ -1,2 +1,2 @@
-# ambrosia
-Ambrosia Cookery Book: Recipe Management System (Spring MVC)
+# Ambrosia \ am-ˈbrō-zh(ē-)ə \
+## Ambrosia Cookery Book: Recipe Management System (Spring MVC)
