@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 public class Ingredient {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
     private String altDescription;
@@ -15,8 +16,12 @@ public class Ingredient {
     @ManyToOne
     private Recipe recipe;
 
+
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure unitOfMeasure;
+
+
+
 
     public Long getId() {
         return id;
