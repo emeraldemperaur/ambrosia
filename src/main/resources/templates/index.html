@@ -3,9 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Ambrosia :: Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/favicon.ico}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.8.2/css/all.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.8.8/css/mdb.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nectar.css}"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 <body>
-<h1 th:text="'My Recipes'">My Recipes</h1>
+
+<div class="container-fluid">
+
+    <div class="jumbotron jumbotron-fluid title-panel">
+        <div class="container">
+            <h2 class="display-4 panel-text" th:text="'My Recipes'">My Recipes</h2>
+            <p class="lead">Ambrosia Cookery Book: Recipe Management System</p>
+        </div>
+    </div>
+
+
+
+    <div class="card card-cascade narrower">
+
+        <div class="px-4">
+
+            <div class="table-wrapper">
+
+    <table class="table table-hover mb-0">
+        <tr>
+       <th class="th-lg table-header">ID</th>
+        <th class="th-lg table-header">Description</th>
+        <th class="th-lg table-header">Ingredients</th>
+
+    </tr>
+    <tr th:each="recipe:${recipes}">
+        <td th:text="${recipe.id}">123</td>
+        <td th:text="${recipe.description}">Description</td>
+        <td th:text="${recipe.ingredients}">Ingredients</td>
+
+    </tr>
+
+</table>
+            </div>
+            </div>
+            </div>
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
 </body>
 </html>
