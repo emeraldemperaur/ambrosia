@@ -14,7 +14,6 @@
     margin-bottom: 27px;
     color: white;
     font-weight: 400;
-
 }
 
 .panel-text{
@@ -23,7 +22,6 @@
     color: white;
     font-size: 24px;
     font-weight: 500;
-
 }
 
 
@@ -31,7 +29,9 @@
     font-size: 21px;
     font-weight: 500;
     font-family: "Raleway", sans-serif;
+}
 
-
-
+.logo{
+    width: 69px;
+    height: 69px;
 }
