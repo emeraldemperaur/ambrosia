@@ -2,16 +2,17 @@ package iot.empiaurhouse.ambrosia.services;
 
 import iot.empiaurhouse.ambrosia.model.Recipe;
 import iot.empiaurhouse.ambrosia.repositories.RecipeRepository;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
@@ -24,7 +25,22 @@ public class RecipeServiceImplTest {
     public void setUp() throws Exception{
         MockitoAnnotations.initMocks(this);
         recipeService = new RecipeServiceImpl(recipeRepository);
+
     }
+
+    @Test
+    public void getRecipesByIdTest() throws Exception{
+        Recipe testRecipe = new Recipe();
+        testRecipe.setId(1L);
+        Optional<Recipe> recipeOptional = Optional.of(testRecipe);
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+        Recipe recipeReturned = recipeService.findById(1L);
+        assertNotEquals("Null recipe returned", recipeReturned);
+        verify(recipeRepository, times(1)).findById(anyLong());
+        verify(recipeRepository, never()).findAll();
+
+    }
+
 
     @Test
     public void getRecipes() throws Exception {

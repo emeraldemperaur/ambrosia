@@ -4,6 +4,30 @@
     font-weight: normal;
 }
 
+@font-face {
+    font-family: RalewaySemiBold;
+    src: url('../resources/fonts/raleway-bold.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: RalewayLight;
+    src: url('../resources/fonts/raleway-light.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: RalewayMedium;
+    src: url('../resources/fonts/raleway-medium.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: RalewayThin;
+    src: url('../resources/fonts/raleway-thin.ttf') format('truetype');
+    font-weight: normal;
+}
+
 .title-panel{
     font-size: 24px;
     padding: 13px;
@@ -35,3 +59,201 @@
     width: 69px;
     height: 69px;
 }
+
+.nectar-button{
+    font-family: RalewayMedium, sans-serif;
+    font-size: 19px;
+    color: #D4AF37;
+
+}
+
+.nectar-title{
+    font-family: RalewayMedium, sans-serif;
+    font-size: 19px;
+    font-weight: 300;
+    color: #D4AF37;
+
+}
+
+.btn-outline-nectar{
+    color: #D4AF37;
+}
+
+.nectar-text{
+    font-family: RalewayThin, sans-serif, sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.cook-time{
+    font-family: RalewayMedium, sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    color: #000000;
+
+}
+
+.recipe-title{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: calc(1.725rem + 2.83636vw);
+    letter-spacing: .4em;
+    line-height: 1;
+    font-family: RalewaySemiBold,sans-serif;
+    color: #D4AF37;
+    padding-left: 69px;
+    margin-left: -69px;
+
+}
+
+.recipe-info-title{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: calc(1.725rem + 2.83636vw);
+    letter-spacing: .4em;
+    line-height: 1;
+    font-family: RalewaySemiBold,sans-serif;
+    color: #D4AF37;
+    padding-top: 9px;
+    padding-bottom: 6px;
+    padding-left: 9px ;
+
+}
+
+
+.recipe-info-sub-title{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 19px;
+    letter-spacing: .4em;
+    line-height: 1;
+    font-family: RalewayLight,sans-serif;
+    font-weight: 500;
+    color: #D4AF37;
+    padding-top: 9px;
+    padding-bottom: 13px;
+    padding-left: 11px ;
+
+}
+
+.recipe-title-panel{
+    font-size: 24px;
+    padding: 13px;
+    border-radius: 15px;
+    border: 2px solid #D4AF37;
+    background-color: white;
+    margin-top: 27px;
+    margin-bottom: 27px;
+    color: white;
+    font-weight: 400;
+}
+
+
+.nectar-sub-text{
+    font-family: RalewayMedium, sans-serif, sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #D4AF37;
+}
+
+.nectar-icon{
+    color: #D4AF37;
+    font-size: 34px;
+}
+
+.nectar-recipe-card{
+    margin-bottom: 19px;
+}
+
+.recipe-panel-text{
+    margin-bottom: 0px;
+    font-family: "RalewayLight", sans-serif;
+    color: #D4AF37;
+    font-size: 24px;
+    font-weight: 500;
+    padding-left: 3px;
+}
+
+.nectar-recipe-title{
+    padding-top: 16px;
+    padding-left: 13px;
+}
+
+.recipe-card-title{
+    font-family: Raleway, sans-serif;
+    font-weight: 500;
+    padding-top: 10px;
+}
+
+.nectar-frame{
+    padding: 13px 63px 33px;
+    align-content: center;
+    display: flex;
+}
+
+.footer-logo{
+    margin-top: 36px;
+    margin-bottom: 69px;
+}
+
+.nectar-hue{
+    color: #D4AF37;
+}
+
+
+.nectar-item-title{
+    font-family: RalewayThin, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+
+}
+
+.nectar-item-value{
+    font-family: RalewayMedium, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.home-button{
+    padding-top: 23px;
+    padding-bottom: 23px;
+    font-family: RalewayMedium, sans-serif;
+    font-size: 21px;
+    color: #D4AF37;
+    text-transform: uppercase;
+    letter-spacing: .4em;
+    line-height: 1;
+}
+
+.nectar-title-fx{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 19px;
+    letter-spacing: .4em;
+    line-height: 1;
+}
+
+.nectar-line{
+    color: #D4AF37;
+}
+
+.conspectus-icon{
+    padding-right: 3px;
+}
+
+.nectar-list-item-icon{
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-size: 24px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 6px;
+}
+
+.nectar-list-item-text{
+    font-family: RalewayThin, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 3px;
+    padding-bottom: 6px;
+}
+

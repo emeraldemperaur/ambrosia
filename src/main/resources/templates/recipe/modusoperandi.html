@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modus Operandi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/ambrosia-favicon.ico}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.8.2/css/all.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.8.8/css/mdb.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nectar.css}"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <!-- Recipe Title -->
+    <!--/*@thymesVar id="recipeItem" type="iot.empiaurhouse.ambrosia.model.Recipe"*/-->
+    <h2 class="display-4 recipe-info-title" th:text="${recipeItem.description}">Recipe Title</h2>
+
+    <h5 class="recipe-info-sub-title" th:text="${cuisineTitle} + ' Cuisine'">Nigerian Cuisine</h5>
+
+    <!-- Conspectus Card -->
+
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <a><i class="fas fa-utensils fa-lg nectar-icon nectar-recipe-title"></i></a>
+            <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Conspectus'">Conspectus</a>
+            <hr class="nectar-line">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-sm-6">
+                    <div class="col-md-3" >
+                        <a><i class="fas fa-clock fa-lg conspectus-icon"></i></a>
+                        <a style="font-weight: 600" class="nectar-item-title" th:text="'Prep Time: '">Prep Time:</a>
+                    </div>
+                    <div class="col-md-3" >
+                        <a class="nectar-item-value" th:text="${recipeItem.prepTime.toString()}">30 minutes</a>
+                    </div>
+                    <div class="col-md-3" >
+                        <a><i class="fas fa-stopwatch fa-lg conspectus-icon"></i></a>
+                        <a style="font-weight: 600" class="nectar-item-title" th:text="'Cook Time: '">Cook Time: </a>
+                    </div>
+                    <div class="col-md-3" >
+                        <a class="nectar-item-value" th:text="${recipeItem.cookTime.toString()}">30 minutes</a>
+                    </div>
+                    <br>&nbsp;
+                    <br>
+                    <div class="col-md-3" >
+                        <a><i class="fas fa-concierge-bell fa-lg conspectus-icon"></i></a>
+                        <a style="font-weight: 600" class="nectar-item-title" th:text="'Servings: '">Servings: </a>
+                    </div>
+                    <div class="col-md-3" >
+                        <a class="nectar-item-value" th:text="${recipeItem.servings.toString()}">30 minutes</a>
+                    </div>
+                    <div class="col-md-3" >
+                        <a><i class="fas fa-cannabis fa-lg conspectus-icon"></i></a>
+                        <a style="font-weight: 600" class="nectar-item-title" th:text="'Preference: '">Preference Rating: </a>
+                    </div>
+                    <div class="col-md-3" >
+                        <a class="nectar-item-value" th:text="${recipeItem.preference.toString()}">10</a>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="col-md-3 " >
+                        <a><i class="fas fa-user-clock fa-lg conspectus-icon"></i></a>
+                        <a style="font-weight: 600" class="nectar-item-title" th:text="'Category: '"> Category: </a>
+                    </div>
+                    <div class="col-md-3 " >
+                        <a class="nectar-item-value" th:text="${categoryTitle}">Lunch | Dinner</a>
+                    </div>
+                    <div class="col-md-3 " >
+                        <a><i class="fas fa-square-root-alt fa-lg conspectus-icon"></i></a>
+                        <a style="font-weight: 600" class="nectar-item-title" th:text="'Difficulty: '">Difficulty: </a>
+                    </div>
+                    <div class="col-md-3 " >
+                        <a class="nectar-item-value" th:text="${recipeItem.difficulty.toString()}">EASY</a>
+                    </div>
+
+                    <br>&nbsp;
+                    <br>
+
+                    <div class="col-md-3 " >
+                        <a><i class="fab fa-grav fa-lg conspectus-icon"></i></a>
+                        <a style="font-weight: 600" class="nectar-item-title" th:text="'Originator: '">Originator: </a>
+                    </div>
+                    <div class="col-md-3 " >
+                        <a class="nectar-item-value" th:text="${recipeItem.originator}">Traditional</a>
+                    </div>
+                    <div class="col-md-3 " >
+                        <a><i class="fas fa-globe-africa fa-lg conspectus-icon"></i></a>
+                        <a style="font-weight: 600" class="nectar-item-title" th:text="'Source: '">Source: </a>
+                    </div>
+                    <div class="col-md-3 " >
+                        <a class="nectar-item-value" th:text="${recipeItem.source}">West Africa</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /Conspectus Card -->
+
+    <!-- Ingredients Card -->
+
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <a><i class="fas fa-pepper-hot fa-lg nectar-icon nectar-recipe-title"></i></a>
+            <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Ingredients'">Ingredients</a>
+            <hr class="nectar-line">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-md-12">
+
+                    <ul style="font-weight: 500" class="fa-ul">
+                        <li th:each="ingredient : ${recipeItem.ingredients}">
+                            <span class="fa-li">
+                                <i class="far fa-arrow-alt-circle-right fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text" th:text="${ingredient.getAmount() + ' ' +
+                            ingredient.unitOfMeasure.getUom() + ' of ' + ingredient.getDescription()}">Eguisi Seed</a>
+                        </li>
+                        <li th:remove="all">
+                            <span class="fa-li">
+                                <i class="far fa-arrow-alt-circle-right fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text">Thyme</a></li>
+                        <li th:remove="all">
+                            <span class="fa-li">
+                                <i class="far fa-arrow-alt-circle-right fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text">Beef</a></li>
+                        <li th:remove="all">
+                            <span class="fa-li">
+                                <i class="far fa-arrow-alt-circle-right fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text">Palm Oil</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /Ingredients Card -->
+
+    <!-- Directions Card -->
+
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <a><i class="fas fa-directions fa-lg nectar-icon nectar-recipe-title"></i></a>
+            <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Directions'">Directions</a>
+            <hr class="nectar-line">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-md-12">
+                    <pre style="text-align: justify; font-weight: 600" class="nectar-item-title" th:text="${recipeItem.directions}">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac tincidunt vitae semper quis lectus nulla at. Aliquet sagittis id consectetur purus ut. At tempor commodo ullamcorper a lacus. Gravida in fermentum et sollicitudin ac orci phasellus egestas. At risus viverra adipiscing at. Diam vulputate ut pharetra sit amet. Egestas congue quisque egestas diam in arcu. Augue lacus viverra vitae congue. Ullamcorper sit amet risus nullam eget. Penatibus et magnis dis parturient montes nascetur ridiculus. At auctor urna nunc id cursus metus aliquam eleifend. Sit amet dictum sit amet justo donec enim diam vulputate.
+                    </pre>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /Directions Card -->
+
+    <!-- Synopsis Card -->
+
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <a><i class="fas fa-info-circle fa-lg nectar-icon nectar-recipe-title"></i></a>
+            <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Synopsis'">Synopsis</a>
+            <hr class="nectar-line">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-md-12">
+                    <pre style="text-align: justify; font-weight: 600" class="nectar-item-title" th:text="${recipeItem.synopsis.recipeSynopsis}">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac tincidunt vitae semper quis lectus nulla at. Aliquet sagittis id consectetur purus ut. At tempor commodo ullamcorper a lacus. Gravida in fermentum et sollicitudin ac orci phasellus egestas. At risus viverra adipiscing at. Diam vulputate ut pharetra sit amet. Egestas congue quisque egestas diam in arcu. Augue lacus viverra vitae congue. Ullamcorper sit amet risus nullam eget. Penatibus et magnis dis parturient montes nascetur ridiculus. At auctor urna nunc id cursus metus aliquam eleifend. Sit amet dictum sit amet justo donec enim diam vulputate.
+                    </pre>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- /Synopsis Card -->
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <br>
+            <br>
+            <a class="home-button" th:href="@{'/'}" th:text="'<< GO TO MY RECIPES'"><< GO TO MY RECIPES</a>
+            <br>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container footer-logo">
+    <div class="row">
+        <div class="col-12 text-center">
+            <p>
+                <a th:target="_blank" th:href="${'https://www.emekaegwim.com/'}">
+            <img src="../static/resources/images/meka-dev-logo.png" th:src="@{/resources/images/meka-dev-logo.png}"
+                 alt="Designed x Developed by Emeka Egwim"/>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

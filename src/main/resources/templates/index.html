@@ -24,7 +24,7 @@
     <div class="jumbotron jumbotron-fluid title-panel">
         <div class="container">
             <img class="logo" th:src="@{/resources/images/ambrosialogo-w.png}" alt="ambrosia logo">
-            <h2 class="display-4 panel-text" th:text="'My Recipes'">My Recipes</h2>
+            <h2 class="display-4 panel-text nectar-title-fx" th:text="'My Recipes'">My Recipes</h2>
             <p class="lead">Ambrosia Cookery Book: Recipe Management System</p>
         </div>
     </div>
@@ -39,15 +39,21 @@
 
     <table class="table table-hover mb-0">
         <tr>
-       <th class="th-lg table-header">ID</th>
-        <th class="th-lg table-header">Description</th>
-        <th class="th-lg table-header">Ingredients</th>
-
-    </tr>
+            <th class="th-lg table-header nectar-title">ID</th>
+            <th class="th-lg table-header nectar-title">Description</th>
+            <th class="th-lg table-header nectar-title">Cook Time</th>
+            <th class="th-lg table-header nectar-title"></th>
+        </tr>
     <tr th:each="recipe:${recipes}">
-        <td th:text="${recipe.id}">123</td>
-        <td th:text="${recipe.description}">Description</td>
-        <td th:text="${recipe.ingredients}">Ingredients</td>
+        <td class="nectar-text" th:text="${recipe.id}">123</td>
+        <td class="nectar-text" th:text="${recipe.description}">Description</td>
+        <td class="nectar-text cook-time" th:text="${recipe.cookTime.toString() + ' minutes'}">Cook Time</td>
+        <td>
+            <button type="button" class="btn btn-outline-warning waves-effect">
+                <a th:href="@{'/recipe/modusoperandi/' + ${recipe.id}}" class="nectar-button"
+                   th:text="'View Recipe'" style="color:#D4AF37">View Recipe</a>
+            </button>
+        </td>
 
     </tr>
 
@@ -57,11 +63,16 @@
             </div>
 </div>
 
-<div class="container">
+<div class="container footer-logo">
     <div class="row">
         <div class="col-12 text-center">
+            <p>
+                <a th:target="_blank" th:href="${'https://www.emekaegwim.com/'}">
             <img src="../static/resources/images/meka-dev-logo.png" th:src="@{/resources/images/meka-dev-logo.png}"
-                 alt="Designed x Developed by Emeka Egwim"/></div>
+                 alt="Designed x Developed by Emeka Egwim"/>
+                </a>
+            </p>
+        </div>
     </div>
 </div>
 

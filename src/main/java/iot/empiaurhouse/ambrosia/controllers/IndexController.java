@@ -20,4 +20,11 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping({"recipe/","recipe/modusoperandi/test"})
+    public String getRecipePage(){
+
+        return "recipe/modusoperandi";
+    }
+
+
 }
