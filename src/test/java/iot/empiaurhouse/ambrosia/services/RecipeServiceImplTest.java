@@ -1,6 +1,8 @@
 package iot.empiaurhouse.ambrosia.services;
 
 import iot.empiaurhouse.ambrosia.model.Recipe;
+import iot.empiaurhouse.ambrosia.objectconverters.RecipeCommandToRecipe;
+import iot.empiaurhouse.ambrosia.objectconverters.RecipeToRecipeCommand;
 import iot.empiaurhouse.ambrosia.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,11 +22,15 @@ public class RecipeServiceImplTest {
     RecipeServiceImpl recipeService;
     @Mock
     RecipeRepository recipeRepository;
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
 
     @BeforeEach
     public void setUp() throws Exception{
         MockitoAnnotations.initMocks(this);
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
 
     }
 

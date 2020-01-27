@@ -10,12 +10,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Set;
 
 @Controller
 @Slf4j
 public class RecipeController {
     private final RecipeService recipeService;
+
 
 
     public RecipeController(RecipeService recipeService) {
@@ -29,6 +32,7 @@ public class RecipeController {
         model.addAttribute("recipeItem", recipeService.findById(Long.valueOf(id)));
         model.addAttribute("cuisineTitle",getSingleCuisineTitle(id));
         model.addAttribute("categoryTitle",getSingleCategoryTitle(id));
+        model.addAttribute("directionsList", directionsList(id));
 
         return "recipe/modusoperandi";
     }
@@ -51,6 +55,15 @@ public class RecipeController {
         Set<Category> recipeCategories = selectedRecipe.getCategories();
         Category categoryIter = recipeCategories.stream().findFirst().orElse(nullCategory);
         return categoryIter.getCategoryDescription();
+    }
+
+
+
+    private ArrayList<String> directionsList(String recipeID){
+        Recipe selectedRecipe = recipeService.findById(Long.valueOf(recipeID));
+        String directions = selectedRecipe.getDirections();
+
+        return new ArrayList<>(Arrays.asList(directions.split(",")));
     }
 
 }

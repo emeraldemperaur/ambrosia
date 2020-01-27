@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/ambrosia-favicon.ico}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/ambrosialogo-blk.png}">
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.8.2/css/all.css} "/>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css} "/>
     <link rel="stylesheet" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.8.8/css/mdb.min.css} "/>
@@ -147,7 +147,7 @@
                     <ul style="font-weight: 500" class="fa-ul">
                         <li th:each="ingredient : ${recipeItem.ingredients}">
                             <span class="fa-li">
-                                <i class="far fa-arrow-alt-circle-right fa-lg nectar-list-item-icon"></i>
+                                <i class="fas fa-star-half-alt fa-lg nectar-list-item-icon"></i>
                             </span><a class="nectar-list-item-text" th:text="${ingredient.getAmount() + ' ' +
                             ingredient.unitOfMeasure.getUom() + ' of ' + ingredient.getDescription()}">Eguisi Seed</a>
                         </li>

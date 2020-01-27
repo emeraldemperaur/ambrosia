@@ -1,10 +1,14 @@
 package iot.empiaurhouse.ambrosia.services;
 
+import iot.empiaurhouse.ambrosia.commandobjects.RecipeCommand;
 import iot.empiaurhouse.ambrosia.model.Recipe;
+import iot.empiaurhouse.ambrosia.objectconverters.RecipeCommandToRecipe;
+import iot.empiaurhouse.ambrosia.objectconverters.RecipeToRecipeCommand;
 import iot.empiaurhouse.ambrosia.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -14,9 +18,13 @@ import java.util.Set;
 public class RecipeServiceImpl implements RecipeService {
 
     private final RecipeRepository recipeRepository;
+    private final RecipeCommandToRecipe recipeCommandToRecipe;
+    private final RecipeToRecipeCommand recipeToRecipeCommand;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeCommandToRecipe recipeCommandToRecipe,RecipeToRecipeCommand recipeToRecipeCommand) {
         this.recipeRepository = recipeRepository;
+        this.recipeCommandToRecipe = recipeCommandToRecipe;
+        this.recipeToRecipeCommand = recipeToRecipeCommand;
     }
 
     @Override
@@ -39,5 +47,15 @@ public class RecipeServiceImpl implements RecipeService {
         }
 
         return recipeOptional.get();
+    }
+
+    @Override
+    @Transactional
+    public RecipeCommand saveRecipeCommandObject(RecipeCommand recipeCommand) {
+        Recipe stagedRecipe = recipeCommandToRecipe.convert(recipeCommand);
+        assert stagedRecipe != null;
+        Recipe savedRecipe = recipeRepository.save(stagedRecipe);
+        log.debug("Saved " + stagedRecipe.getDescription() + " Recipe Command Object w/ ID: " + savedRecipe.getId() + "!");
+        return recipeToRecipeCommand.convert(savedRecipe);
     }
 }

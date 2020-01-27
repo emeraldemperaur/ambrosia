@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/ambrosia-favicon.ico}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/ambrosialogo-blk.png}">
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.8.2/css/all.css} "/>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css} "/>
     <link rel="stylesheet" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.8.8/css/mdb.min.css} "/>
@@ -49,10 +49,12 @@
         <td class="nectar-text" th:text="${recipe.description}">Description</td>
         <td class="nectar-text cook-time" th:text="${recipe.cookTime.toString() + ' minutes'}">Cook Time</td>
         <td>
+            <a th:href="@{'/recipe/modusoperandi/' + ${recipe.id}}">.
             <button type="button" class="btn btn-outline-warning waves-effect">
                 <a th:href="@{'/recipe/modusoperandi/' + ${recipe.id}}" class="nectar-button"
                    th:text="'View Recipe'" style="color:#D4AF37">View Recipe</a>
             </button>
+            </a>
         </td>
 
     </tr>

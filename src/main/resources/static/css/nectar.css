@@ -246,7 +246,7 @@
     font-size: 24px;
     padding-right: 3px;
     padding-top: 3px;
-    padding-bottom: 6px;
+    padding-bottom: 9px;
 }
 
 .nectar-list-item-text{
@@ -254,6 +254,12 @@
     font-size: 18px;
     font-weight: 600;
     padding-top: 3px;
-    padding-bottom: 6px;
+    padding-left: 3px;
+    padding-bottom: 9px;
+}
+
+li
+{
+    margin: 0.5em 0;
 }
 
