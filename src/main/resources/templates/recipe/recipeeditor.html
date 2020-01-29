@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Recipe Editor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/ambrosialogo-blk.png}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.8.2/css/all.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.8.8/css/mdb.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nectar.css}"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <h2 class="display-4 recipe-info-title" th:text="'NEW RECIPE'">New Recipe</h2>
+
+    <h5 class="recipe-info-sub-title" th:text="'ENTER RECIPE DETAILS'">Enter Recipe Details</h5>
+
+    <form   th:object="${recipe}" th:action="@{/recipe/}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+    <!-- Conspectus Card -->
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <a><i class="fas fa-utensils fa-lg nectar-icon nectar-recipe-title"></i></a>
+            <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Conspectus'">Conspectus</a>
+            <hr class="nectar-line">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-md-6">
+                    <!-- Left content -->
+
+                    <div class="col-md-6 form-group" >
+                        <a><i class="fas fa-feather-alt fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Recipe Title '">Recipe Title:</label>
+                        <input type="text" class="form-control nectar-input" th:field="*{description}" />
+
+                    </div>
+                    <div class="col-md-3 form-group" >
+                        <a><i class="fas fa-stopwatch fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Cook Time '">Cook Time: </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{cookTime}" />
+
+                    </div>
+
+                    <div class="col-md-3 form-group" >
+                        <a><i class="fas fa-clock fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Prep Time '">Prep Time: </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{prepTime}" />
+                    </div>
+
+                    <div class="col-md-6 form-group" >
+                        <a><i class="fab fa-grav fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Originator '">Originator: </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{originator}" />
+                    </div>
+
+                    <div class="col-md-3 form-group" >
+                        <a><i class="fas fa-concierge-bell fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Servings '">Servings: </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{servings}" />
+                    </div>
+
+                    <div class="col-md-3 form-group" >
+                        <a><i class="fas fa-square-root-alt fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Difficulty '"> Difficulty: </label>
+                        <select class="form-control nectar-item-title">
+                            <option>Easy</option>
+                            <option>Medium</option>
+                            <option>Hard</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-6">
+                    <!-- Right content -->
+                    <div style="border-radius: 5px;" class="card">
+
+                        <div class="card-body nectar-inner-card">
+
+                    <div class="col-md-6 " >
+                        <a style="font-size: 31px;"><i class="fab fa-cuttlefish fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600; padding-bottom: 4px;" class="nectar-item-title" th:text="'Cuisines '"> Cuisines: </label>
+                        <!-- Cuisine Radios - option ID1 -->
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="cuisineID1" name="groupOfCuisineRadios">
+                            <label class="custom-control-label nectar-item-title" for="cuisineID1">Option 1</label>
+                        </div>
+
+                        <!-- Cuisine Radios - option ID2 -->
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="cuisineID2" name="groupOfCuisineRadios" checked>
+                            <label class="custom-control-label nectar-item-title" for="cuisineID2">Option 2</label>
+                        </div>
+
+                        <!-- Cuisine Radios - option ID3 -->
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="cuisineID3" name="groupOfCuisineRadios">
+                            <label class="custom-control-label nectar-item-title" for="cuisineID3">Option 3</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 " >
+                        <a style="font-size: 31px;"><i  class="fas fa-dharmachakra fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600; padding-bottom: 4px;" class="nectar-item-title" th:text="'Category '">Category: </label>
+                        <!-- Category Radios - option ID1 -->
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="categoryID1" name="groupOfCategoryRadios">
+                            <label class="custom-control-label nectar-item-title" for="categoryID1">Option 1</label>
+                        </div>
+
+                        <!-- Category Radios - option ID2 -->
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="categoryID2" name="groupOfCategoryRadios" checked>
+                            <label class="custom-control-label nectar-item-title" for="categoryID2">Option 2</label>
+                        </div>
+
+                        <!-- Category Radios - option ID3 -->
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="categoryID3" name="groupOfCategoryRadios">
+                            <label class="custom-control-label nectar-item-title" for="categoryID3">Option 3</label>
+                        </div>
+
+                    </div>
+                            &nbsp;
+                    <div style="margin-top:10px;" class="row">
+                    <div class="col-md-6 " >
+                        <a style="font-size: 23px;"><i class="fas fa-globe-africa fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Source '">Source: </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{source}" />
+                    </div>
+                    </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right content -->
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Bottom content -->
+            <div class="row justify-content-md-center nectar-slider-frame">
+                <div class="col-md-12 multi-range-field my-5 pb-5">
+                    <a style="font-size: 31px;"><i class="fas fa-cannabis fa-lg conspectus-icon nectar-slider"></i></a>
+                    <label  class="nectar-item-title nectar-slider" th:text="'Preference Rating '"> Preference: </label>
+                    <input id="multi1" class="multi-range" type="range" />
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /Conspectus Card -->
+
+    <!-- Ingredients Card -->
+
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <div class="row">
+
+            <div class="col-sm-9">
+                <a><i class="fas fa-pepper-hot fa-lg nectar-icon nectar-recipe-title"></i></a>
+                <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Ingredients'">Ingredients</a>
+            </div>
+            <div class="col-sm-3">
+
+            </div>
+
+
+            </div>
+            <hr class="nectar-line">
+            <a>
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <div style="padding: 4px" class="row">
+                <div class="col-sm-9">
+                </div>
+                <div class="col-sm-3">
+                    <a style="color:#ffffff;">
+                        <button class="btn nectar-edit-ingredient-button">&nbsp;<i style="font-size: 19px; padding: 5px;" class="fas fa-pepper-hot mr-1"></i> EDIT INGREDIENTS</button>
+                    </a>
+                </div>
+
+
+            </div>
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-md-12">
+
+                    <ul style="font-weight: 500" class="fa-ul">
+                        <li th:each="ingredient: ${recipe.ingredients}"
+                            th:text="${ingredient.getAmount() + ' ' +
+                            ingredient.unitOfMeasure.getUom() + '' +
+                            ingredient.getDescription()}">
+                            <span class="fa-li">
+                                <i class="fas fa-star-half-alt fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text" th:text="'Test'">Eguisi Seed</a>
+                        </li>
+                        <li th:remove="all">
+                            <span class="fa-li">
+                                <i class="far fa-arrow-alt-circle-right fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text">Thyme</a></li>
+                        <li th:remove="all">
+                            <span class="fa-li">
+                                <i class="far fa-arrow-alt-circle-right fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text">Beef</a></li>
+                        <li th:remove="all">
+                            <span class="fa-li">
+                                <i class="far fa-arrow-alt-circle-right fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text">Palm Oil</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /Ingredients Card -->
+
+    <!-- Directions Card -->
+
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <a><i class="fas fa-directions fa-lg nectar-icon nectar-recipe-title"></i></a>
+            <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Directions'">Directions</a>
+            <hr class="nectar-line">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-md-12 form-group">
+                    <a style="color: #D4AF37" class="nectar-text-area-title">Enter your recipe directions with each step separated with a comma < , > </a>
+                    <label style="font-weight: 600" class="nectar-item-title">
+                        <textarea th:field="*{directions}" style="text-align: justify; font-weight: 500" class="form-control nectar-item-title nectar-text-area" rows="4" ></textarea>
+                    </label>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /Directions Card -->
+
+    <!-- Synopsis Card -->
+
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <a><i class="fas fa-info-circle fa-lg nectar-icon nectar-recipe-title"></i></a>
+            <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Synopsis'">Synopsis</a>
+            <hr class="nectar-line">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-md-12 form-group">
+                    <a style="color: #D4AF37" class="nectar-text-area-title" >Additional recipe notes, details or special considerations</a>
+                    <br>
+                    <label style="font-weight: 600" class="nectar-item-title">
+                        <textarea th:field="*{synopsis.recipeSynopsis}" style="text-align: justify; font-weight: 500;" class="form-control nectar-item-title nectar-text-area" rows="4" ></textarea>
+                    </label>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- /Synopsis Card -->
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <br>
+                <br>
+                <button type="submit" style="background-color: #D4AF37;" class="btn nectar-submit-button" th:text="'SAVE RECIPE'">SAVE RECIPE</button>
+                <br>
+                <br>
+            </div>
+        </div>
+
+
+
+    </form>
+
+
+</div>
+
+<div class="container footer-logo">
+    <div class="row">
+        <div class="col-12 text-center">
+            <p>
+                <a  th:target="_blank" th:href="${'https://www.emekaegwim.com/'}">
+                    <img src="../static/resources/images/meka-dev-logo.png" th:src="@{/resources/images/meka-dev-logo.png}"
+                         alt="Designed x Developed by Emeka Egwim"/>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

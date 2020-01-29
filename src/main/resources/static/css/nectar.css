@@ -263,3 +263,77 @@ li
     margin: 0.5em 0;
 }
 
+
+.nectar-input{
+    font-family: Raleway, sans-serif;
+    font-weight: normal;
+}
+
+
+.nectar-slider{
+    font-weight: 600;
+    text-align: center;
+    display: block;
+}
+
+.nectar-slider-frame{
+    align-content: center;
+    display: flex;
+    padding: 13px 63px 69px;
+}
+
+input.submit {
+    font-size: 19px;
+    font-family: RalewayMedium, sans-serif;
+    background-color: #D4AF37;
+    color: white;
+
+}
+
+.nectar-submit-button{
+    font-size: 19px;
+    font-family: RalewayMedium, sans-serif;
+    background-color: #D4AF37;
+    color: white;
+}
+
+.nectar-edit-ingredient-button{
+    font-size: 16px;
+    font-family: RalewayMedium, sans-serif;
+    background-color: #D4AF37;
+    color: white;
+    padding-right: 9px;
+    margin-right: 3px;
+    padding-left: 3px;
+}
+
+
+.nectar-ingredient-button-icon{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 16px;
+}
+
+.nectar-text-area{
+    width: 88rem;
+    text-align: justify;
+    font-family: RalewayMedium, sans-serif;
+    max-width:100%;
+
+}
+
+.nectar-text-area-title{
+    padding-bottom: 9px;
+    font-family: RalewayThin, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.nectar-inner-card{
+    padding: 69px;
+    border-radius: 25px;
+}
+
+
+

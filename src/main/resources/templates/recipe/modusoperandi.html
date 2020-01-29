@@ -52,14 +52,14 @@
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Prep Time: '">Prep Time:</a>
                     </div>
                     <div class="col-md-3" >
-                        <a class="nectar-item-value" th:text="${recipeItem.prepTime.toString()}">30 minutes</a>
+                        <a class="nectar-item-value" th:text="${recipeItem.prepTime}">30 minutes</a>
                     </div>
                     <div class="col-md-3" >
                         <a><i class="fas fa-stopwatch fa-lg conspectus-icon"></i></a>
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Cook Time: '">Cook Time: </a>
                     </div>
                     <div class="col-md-3" >
-                        <a class="nectar-item-value" th:text="${recipeItem.cookTime.toString()}">30 minutes</a>
+                        <a class="nectar-item-value" th:text="${recipeItem.cookTime}">30 minutes</a>
                     </div>
                     <br>&nbsp;
                     <br>
@@ -68,21 +68,21 @@
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Servings: '">Servings: </a>
                     </div>
                     <div class="col-md-3" >
-                        <a class="nectar-item-value" th:text="${recipeItem.servings.toString()}">30 minutes</a>
+                        <a class="nectar-item-value" th:text="${recipeItem.servings}">30 minutes</a>
                     </div>
                     <div class="col-md-3" >
                         <a><i class="fas fa-cannabis fa-lg conspectus-icon"></i></a>
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Preference: '">Preference Rating: </a>
                     </div>
                     <div class="col-md-3" >
-                        <a class="nectar-item-value" th:text="${recipeItem.preference.toString()}">10</a>
+                        <a class="nectar-item-value" th:text="${recipeItem.preference}">10</a>
                     </div>
 
                 </div>
 
                 <div class="col-sm-6">
                     <div class="col-md-3 " >
-                        <a><i class="fas fa-user-clock fa-lg conspectus-icon"></i></a>
+                        <a><i class="fas fa-dharmachakra fa-lg conspectus-icon"></i></a>
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Category: '"> Category: </a>
                     </div>
                     <div class="col-md-3 " >
@@ -93,7 +93,7 @@
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Difficulty: '">Difficulty: </a>
                     </div>
                     <div class="col-md-3 " >
-                        <a class="nectar-item-value" th:text="${recipeItem.difficulty.toString()}">EASY</a>
+                        <a class="nectar-item-value" th:text="${recipeItem.difficulty}">EASY</a>
                     </div>
 
                     <br>&nbsp;
@@ -193,6 +193,13 @@
             <br>
             <div class="row justify-content-center nectar-frame">
                 <div class="col-md-12">
+                    <ul style="font-weight: 500" class="fa-ul">
+                        <li th:each="direction : ${directionsList}">
+                             <span class="fa-li">
+                                <i class="fas fa-star-half-alt fa-lg nectar-list-item-icon"></i>
+                            </span><a class="nectar-list-item-text" th:text="${direction}">Eguisi Seed</a>
+                        </li>
+                    </ul>
                     <pre style="text-align: justify; font-weight: 600" class="nectar-item-title" th:text="${recipeItem.directions}">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac tincidunt vitae semper quis lectus nulla at. Aliquet sagittis id consectetur purus ut. At tempor commodo ullamcorper a lacus. Gravida in fermentum et sollicitudin ac orci phasellus egestas. At risus viverra adipiscing at. Diam vulputate ut pharetra sit amet. Egestas congue quisque egestas diam in arcu. Augue lacus viverra vitae congue. Ullamcorper sit amet risus nullam eget. Penatibus et magnis dis parturient montes nascetur ridiculus. At auctor urna nunc id cursus metus aliquam eleifend. Sit amet dictum sit amet justo donec enim diam vulputate.
                     </pre>
@@ -245,7 +252,7 @@
         <div class="col-12 text-center">
             <br>
             <br>
-            <a class="home-button" th:href="@{'/'}" th:text="'<< GO TO MY RECIPES'"><< GO TO MY RECIPES</a>
+            <a style="text-decoration: none" class="home-button" th:href="@{'/'}" th:text="'<< GO TO MY RECIPES'"><< GO TO MY RECIPES</a>
             <br>
         </div>
     </div>
@@ -257,7 +264,7 @@
     <div class="row">
         <div class="col-12 text-center">
             <p>
-                <a th:target="_blank" th:href="${'https://www.emekaegwim.com/'}">
+                <a  th:target="_blank" th:href="${'https://www.emekaegwim.com/'}">
             <img src="../static/resources/images/meka-dev-logo.png" th:src="@{/resources/images/meka-dev-logo.png}"
                  alt="Designed x Developed by Emeka Egwim"/>
                 </a>

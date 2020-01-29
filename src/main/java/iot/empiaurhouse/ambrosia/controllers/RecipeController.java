@@ -1,5 +1,6 @@
 package iot.empiaurhouse.ambrosia.controllers;
 
+import iot.empiaurhouse.ambrosia.commandobjects.RecipeCommand;
 import iot.empiaurhouse.ambrosia.model.Category;
 import iot.empiaurhouse.ambrosia.model.Cuisine;
 import iot.empiaurhouse.ambrosia.model.Recipe;
@@ -7,7 +8,9 @@ import iot.empiaurhouse.ambrosia.services.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -41,7 +44,7 @@ public class RecipeController {
     private String getSingleCuisineTitle(String recipeID){
         Recipe selectedRecipe = recipeService.findById(Long.valueOf(recipeID));
         Cuisine nullCuisine = new Cuisine();
-        nullCuisine.setCuisineDescription("No Cuisine Description Found");
+        nullCuisine.setCuisineDescription("No Description Found For");
         Set<Cuisine> recipeCuisines = selectedRecipe.getCuisines();
         Cuisine cuisineIter = recipeCuisines.stream().findFirst().orElse(nullCuisine);
         return cuisineIter.getCuisineDescription();
@@ -57,13 +60,29 @@ public class RecipeController {
         return categoryIter.getCategoryDescription();
     }
 
-
-
     private ArrayList<String> directionsList(String recipeID){
         Recipe selectedRecipe = recipeService.findById(Long.valueOf(recipeID));
         String directions = selectedRecipe.getDirections();
 
-        return new ArrayList<>(Arrays.asList(directions.split(",")));
+        return new ArrayList<>(Arrays.asList(directions.split("\\s*,\\s*")));
     }
+
+    @RequestMapping("recipe/create")
+    public String newRecipe(Model recipeModel){
+        recipeModel.addAttribute("recipe", new RecipeCommand());
+
+        return "recipe/recipeeditor";
+    }
+
+
+    @PostMapping
+    @RequestMapping("recipe")
+    public String saveOrUpdate(@ModelAttribute RecipeCommand recipeCommand){
+        RecipeCommand storedRecipeObject = recipeService.saveRecipeCommandObject(recipeCommand);
+        return "redirect:/recipe/modusoperandi/" + storedRecipeObject.getId();
+    }
+
+
+
 
 }
