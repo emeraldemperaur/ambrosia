@@ -21,9 +21,9 @@
 <body>
 
 <div class="container-fluid">
-    <h2 class="display-4 recipe-info-title" th:text="'NEW RECIPE'">New Recipe</h2>
+    <h2 class="display-4 recipe-info-title" th:text="${title}">New Recipe</h2>
 
-    <h5 class="recipe-info-sub-title" th:text="'ENTER RECIPE DETAILS'">Enter Recipe Details</h5>
+    <h5 class="recipe-info-sub-title" th:text="${subtitle}">Enter Recipe Details</h5>
 
     <form   th:object="${recipe}" th:action="@{/recipe/}" method="post">
         <input type="hidden" th:field="*{id}" />
@@ -172,8 +172,20 @@
             <div class="row justify-content-md-center nectar-slider-frame">
                 <div class="col-md-12 multi-range-field my-5 pb-5">
                     <a style="font-size: 31px;"><i class="fas fa-cannabis fa-lg conspectus-icon nectar-slider"></i></a>
-                    <label  class="nectar-item-title nectar-slider" th:text="'Preference Rating '"> Preference: </label>
-                    <input id="multi1" class="multi-range" type="range" />
+                    <label for="recipe-preference"  class="nectar-item-title nectar-slider" th:text="'Preference Rating '" > Preference:</label>
+                   <input id="recipe-preference" list="nectar-rating" min="1" max="10" class="multi-range nectar-input-slider" type="range" th:field="*{preference}" />
+                    <datalist id="nectar-rating">
+                        <option value="1" label="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                        <option value="4"></option>
+                        <option value="5" label="5"></option>
+                        <option value="6"></option>
+                        <option value="7"></option>
+                        <option value="8"></option>
+                        <option value="9"></option>
+                        <option value="10" label="10"></option>
+                    </datalist>
                 </div>
             </div>
 
@@ -355,6 +367,10 @@
         </div>
     </div>
 </div>
+<script>
+    const nectarslider = document.getElementById("recipe-preference");
+    let preference = nectarslider.value;
+</script>
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>

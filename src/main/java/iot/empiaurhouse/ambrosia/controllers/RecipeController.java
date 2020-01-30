@@ -70,6 +70,8 @@ public class RecipeController {
     @RequestMapping("recipe/create")
     public String newRecipe(Model recipeModel){
         recipeModel.addAttribute("recipe", new RecipeCommand());
+        recipeModel.addAttribute("title","NEW RECIPE");
+        recipeModel.addAttribute("subtitle","ENTER RECIPE DETAILS");
 
         return "recipe/recipeeditor";
     }

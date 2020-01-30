@@ -52,14 +52,14 @@
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Prep Time: '">Prep Time:</a>
                     </div>
                     <div class="col-md-3" >
-                        <a class="nectar-item-value" th:text="${recipeItem.prepTime}">30 minutes</a>
+                        <a class="nectar-item-value" th:text="${recipeItem.prepTime}  + ' minutes'">30 minutes</a>
                     </div>
                     <div class="col-md-3" >
                         <a><i class="fas fa-stopwatch fa-lg conspectus-icon"></i></a>
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Cook Time: '">Cook Time: </a>
                     </div>
                     <div class="col-md-3" >
-                        <a class="nectar-item-value" th:text="${recipeItem.cookTime}">30 minutes</a>
+                        <a class="nectar-item-value" th:text="${recipeItem.cookTime} + ' minutes'">30 minutes</a>
                     </div>
                     <br>&nbsp;
                     <br>
