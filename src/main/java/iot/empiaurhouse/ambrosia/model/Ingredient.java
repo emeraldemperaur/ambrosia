@@ -13,6 +13,7 @@ public class Ingredient {
     private String altDescription;
     private String thumbUrl;
     private BigDecimal amount;
+    private BigDecimal avgUnitPrice;
 
     @ManyToOne
     private Recipe recipe;
@@ -78,6 +79,14 @@ public class Ingredient {
 
     public void setThumbUrl(String thumbUrl) {
         this.thumbUrl = thumbUrl;
+    }
+
+    public BigDecimal getAvgUnitPrice() {
+        return avgUnitPrice;
+    }
+
+    public void setAvgUnitPrice(BigDecimal avgTotalPrice) {
+        this.avgUnitPrice = avgTotalPrice;
     }
 }
 

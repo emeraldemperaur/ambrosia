@@ -386,6 +386,17 @@ input.submit {
     opacity: 1;
 }
 
+.nectar-ingredient-img{
+    width: 400px;
+    height: 400px;
+    opacity: 0.6;
+    border-radius: 20px;
+}
+
+.nectar-ingredient-img:hover{
+    opacity: 1;
+}
+
 
 .nectar-ingredient-amount-label{
     font-family: RalewayMedium, sans-serif;
@@ -411,11 +422,30 @@ input.submit {
 
 }
 
-.bottom-text-button{
-
-
+.nectar-ingredient-frame{
+    padding: 13px 63px 63px;
+    align-content: center;
+    display: flex;
 }
 
 
+.nectar-ingredient-price-value{
+    font-family: RalewaySemiBold, sans-serif;
+    color: #d4af37;
+    font-size: 55px;
+    font-weight: 600;
+}
 
+.nectar-ingredient-list-label{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 19px;
+    letter-spacing: .4em;
+    line-height: 1;
+    font-family: RalewayLight,sans-serif;
+    font-weight: 600;
+    padding-top: 9px;
+    padding-bottom: 13px;
+    padding-left: 11px ;
+}
 

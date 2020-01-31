@@ -45,6 +45,21 @@ public class Recipe {
     inverseJoinColumns = @JoinColumn(name = "cuisine_id"))
     private Set<Cuisine> cuisines = new HashSet<>();
 
+
+    public Recipe addIngredient(Ingredient ingredient){
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
+    }
+
+    public void addSynopsis(Synopsis synopsis) {
+        if (synopsis != null) {
+            this.synopsis = synopsis;
+            synopsis.setRecipe(this);
+        }
+    }
+
+
     public Long getId() {
         return id;
     }

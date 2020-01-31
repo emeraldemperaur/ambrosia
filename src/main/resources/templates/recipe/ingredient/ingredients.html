@@ -43,7 +43,7 @@
             </div>
             <div class="card-body card-body-cascade">
                 <br>
-                <div class="row justify-content-center nectar-frame">
+                <div class="row justify-content-center nectar-ingredient-frame">
                     <div class="col-sm-3">
                         <div class="view overlay">
                             <img class="card-img-top nectar-ingredient-thumb" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
@@ -56,14 +56,14 @@
                     <div class="col-sm-9">
 
                         <!--Amount:-->
-                        <h4 class="card-title nectar-ingredient-amount-label" th:text="'Amount: ' + ${ingredient.amount}">Amount: </h4>
+                        <h4 style="font-weight: 600" class="card-title nectar-ingredient-list-label" th:text="'Amount: ' + ${ingredient.amount}">Amount: </h4>
                         <!--Unit Of Measure:-->
-                        <p style="font-size: 23px" class="card-text nectar-ingredient-uom-label" th:text="'Unit Of Measure: ' + ${ingredient.unitOfMeasure.uom}">Unit Of Measure: </p>
+                        <h5 style="font-size: 23px" class="card-text nectar-ingredient-list-label" th:text="'Unit Of Measure: ' + ${ingredient.unitOfMeasure.uom}">Unit Of Measure: </h5>
                         <br>&nbsp;
                         <!--CRUD ops-->
                         <div class="row">
                         <div class="col-sm-3">
-                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id}}">
                             <button style="background-color: #D4AF37;" class="btn btn-rounded nectar-ingredient-button" th:text="'VIEW'">VIEW</button>
                             </a>
                         </div>

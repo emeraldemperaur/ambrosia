@@ -11,10 +11,12 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class IngredientCommand {
     private Long id;
+    private Long recipeID;
     private String description;
     private String altDescription;
     private String thumbUrl;
     private BigDecimal amount;
+    private BigDecimal avgUnitPrice;
     private UnitOfMeasureCommand unitOfMeasure;
 
 }

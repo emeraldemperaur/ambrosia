@@ -153,6 +153,7 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         eguisiSeed.setDescription("Eguisi");
         eguisiSeed.setAltDescription("Melon Seed");
         eguisiSeed.setAmount(new BigDecimal(3));
+        eguisiSeed.setAvgUnitPrice(new BigDecimal("24.00"));
         eguisiSeed.setUnitOfMeasure(cupUoM);
         eguisiSeed.setRecipe(eguisi);
         eguisiSeed.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/9.jpg");
@@ -161,6 +162,7 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         palmOil.setDescription("Palm Oil");
         palmOil.setAltDescription("Palm Oil");
         palmOil.setAmount(new BigDecimal(1));
+        palmOil.setAvgUnitPrice(new BigDecimal("15.00"));
         palmOil.setUnitOfMeasure(cupUoM);
         palmOil.setRecipe(eguisi);
         palmOil.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/8.jpg");
@@ -169,6 +171,7 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         crayFish.setDescription("Crayfish");
         crayFish.setAltDescription("Crawfish");
         crayFish.setAmount(new BigDecimal(1));
+        crayFish.setAvgUnitPrice(new BigDecimal("5.00"));
         crayFish.setUnitOfMeasure(poundUoM);
         crayFish.setRecipe(eguisi);
         crayFish.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/16.jpg");
@@ -177,6 +180,7 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         pepper.setDescription("Pepper");
         pepper.setAltDescription("Pepper");
         pepper.setAmount(new BigDecimal(3));
+        pepper.setAvgUnitPrice(new BigDecimal("20.00"));
         pepper.setUnitOfMeasure(tablespoonUoM);
         pepper.setRecipe(eguisi);
         pepper.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/17.jpg");
@@ -185,6 +189,7 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         ugwu.setDescription("Ugwu");
         ugwu.setAltDescription("Spinach");
         ugwu.setAmount(new BigDecimal(1));
+        ugwu.setAvgUnitPrice(new BigDecimal("13.00"));
         ugwu.setUnitOfMeasure(poundUoM);
         ugwu.setRecipe(eguisi);
         ugwu.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/15.jpg");
@@ -193,6 +198,7 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         maggi.setDescription("Maggi");
         maggi.setAltDescription("Knor");
         maggi.setAmount(new BigDecimal(3));
+        maggi.setAvgUnitPrice(new BigDecimal("5.00"));
         maggi.setUnitOfMeasure(cubeUoM);
         maggi.setRecipe(eguisi);
         maggi.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/14.jpg");
@@ -201,14 +207,16 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         thyme.setDescription("Thyme");
         thyme.setAltDescription("Thyme");
         thyme.setAmount(new BigDecimal(5));
+        thyme.setAvgUnitPrice(new BigDecimal("12.00"));
         thyme.setUnitOfMeasure(pinchUoM);
         thyme.setRecipe(eguisi);
         thyme.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/13.jpg");
 
         Ingredient onions = new Ingredient();
         onions.setDescription("Onions");
-        onions.setAltDescription("Onions");
+        onions.setAltDescription("Green Onions");
         onions.setAmount(new BigDecimal(1));
+        onions.setAvgUnitPrice(new BigDecimal("5.00"));
         onions.setUnitOfMeasure(poundUoM);
         onions.setRecipe(eguisi);
         onions.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/12.jpg");
@@ -217,6 +225,7 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         salt.setDescription("Salt");
         salt.setAltDescription("Salt");
         salt.setAmount(new BigDecimal(4));
+        salt.setAvgUnitPrice(new BigDecimal("5.00"));
         salt.setUnitOfMeasure(teaspoonUoM);
         salt.setRecipe(eguisi);
         salt.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/11.jpg");
@@ -226,14 +235,16 @@ public class RecipeDataBootstrap implements ApplicationListener<ContextRefreshed
         beef.setDescription("Beef");
         beef.setAltDescription("Beef");
         beef.setAmount(new BigDecimal(2));
+        beef.setAvgUnitPrice(new BigDecimal("25.00"));
         beef.setUnitOfMeasure(poundUoM);
         beef.setRecipe(eguisi);
         beef.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/10.jpg");
 
         Ingredient gizzard = new Ingredient();
         gizzard.setDescription("Gizzard");
-        gizzard.setAltDescription("Gizzard");
+        gizzard.setAltDescription("Chicken Gizzard");
         gizzard.setAmount(new BigDecimal(10));
+        gizzard.setAvgUnitPrice(new BigDecimal("25.00"));
         gizzard.setUnitOfMeasure(ounceUoM);
         gizzard.setRecipe(eguisi);
         gizzard.setThumbUrl("https://mdbootstrap.com/img/Photos/Others/images/16.jpg");
