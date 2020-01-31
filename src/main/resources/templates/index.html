@@ -37,23 +37,48 @@
 
             <div class="table-wrapper">
 
-    <table class="table table-hover mb-0">
+    <table id="recipes" class="table table-hover mb-0">
         <tr>
             <th class="th-lg table-header nectar-title">ID</th>
             <th class="th-lg table-header nectar-title">Description</th>
             <th class="th-lg table-header nectar-title">Cook Time</th>
-            <th class="th-lg table-header nectar-title"></th>
+            <th class="th-lg table-header nectar-title">Prep Time</th>
+            <th class="th-lg table-header nectar-title">Originator</th>
+            <th style="width: 150px;" class="th-lg table-header nectar-title"></th>
+            <th style="width: 50px;" class="th-lg table-header nectar-title"></th>
+            <th style="width: 50px;" class="th-lg table-header nectar-title"></th>
+
+
         </tr>
     <tr th:each="recipe:${recipes}">
         <td class="nectar-text" th:text="${recipe.id}">123</td>
         <td class="nectar-text" th:text="${recipe.description}">Description</td>
         <td class="nectar-text cook-time" th:text="${recipe.cookTime.toString() + ' minutes'}">Cook Time</td>
+        <td class="nectar-text cook-time" th:text="${recipe.prepTime + ' minutes'}">Prep Time</td>
+        <td class="nectar-text" th:text="${recipe.originator}">Originator</td>
+
         <td>
             <a th:href="@{'/recipe/modusoperandi/' + ${recipe.id}}">.
             <button type="button" class="btn btn-outline-warning waves-effect">
                 <a th:href="@{'/recipe/modusoperandi/' + ${recipe.id}}" class="nectar-button"
-                   th:text="'View Recipe'" style="color:#D4AF37">View Recipe</a>
+                   th:text="'View'" style="color:#D4AF37">View Recipe</a>
             </button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/recipe/edit/' + ${recipe.id}}">.
+                <button type="button" class="btn btn-outline-warning waves-effect">
+                    <a th:href="@{'/recipe/edit/' + ${recipe.id}}" class="nectar-button"
+                       th:text="'Edit'" style="color:#D4AF37">Edit</a>
+                </button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/recipe/delete/' + ${recipe.id}}">.
+                <button type="button" class="btn btn-outline-warning waves-effect">
+                    <a th:href="@{'/recipe/delete/' + ${recipe.id}}" class="nectar-button"
+                       th:text="'Delete'" style="color:#D4AF37">Edit</a>
+                </button>
             </a>
         </td>
 

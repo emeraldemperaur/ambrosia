@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Modus Operandi</title>
+    <title th:text="'Modus Operandi | ' + ${recipeItem.description}">Modus Operandi </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,7 +68,7 @@
                         <a style="font-weight: 600" class="nectar-item-title" th:text="'Servings: '">Servings: </a>
                     </div>
                     <div class="col-md-3" >
-                        <a class="nectar-item-value" th:text="${recipeItem.servings}">30 minutes</a>
+                        <a class="nectar-item-value" th:text="${recipeItem.servings} + ' tranches'">4 tranches</a>
                     </div>
                     <div class="col-md-3" >
                         <a><i class="fas fa-cannabis fa-lg conspectus-icon"></i></a>
@@ -140,6 +140,17 @@
         <!-- Card content -->
         <div class="card-body card-body-cascade">
 
+            <div style="padding: 4px" class="row">
+                <div class="col-sm-9">
+                </div>
+                <div class="col-sm-3">
+                    <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipeItem.id} + '/ingredients'}">
+                        <button class="btn nectar-edit-ingredient-button">&nbsp;<i style="font-size: 19px; padding: 5px;" class="fas fa-pepper-hot mr-1"></i> VIEW INGREDIENTS</button>
+                    </a>
+                </div>
+
+            </div>
+
             <br>
             <div class="row justify-content-center nectar-frame">
                 <div class="col-md-12">
@@ -193,13 +204,13 @@
             <br>
             <div class="row justify-content-center nectar-frame">
                 <div class="col-md-12">
-                    <ul style="font-weight: 500" class="fa-ul">
+                    <ol style="font-weight: 500" class="fa-ul">
                         <li th:each="direction : ${directionsList}">
                              <span class="fa-li">
                                 <i class="fas fa-star-half-alt fa-lg nectar-list-item-icon"></i>
                             </span><a class="nectar-list-item-text" th:text="${direction}">Eguisi Seed</a>
                         </li>
-                    </ul>
+                    </ol>
                     <pre style="text-align: justify; font-weight: 600" class="nectar-item-title" th:text="${recipeItem.directions}">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac tincidunt vitae semper quis lectus nulla at. Aliquet sagittis id consectetur purus ut. At tempor commodo ullamcorper a lacus. Gravida in fermentum et sollicitudin ac orci phasellus egestas. At risus viverra adipiscing at. Diam vulputate ut pharetra sit amet. Egestas congue quisque egestas diam in arcu. Augue lacus viverra vitae congue. Ullamcorper sit amet risus nullam eget. Penatibus et magnis dis parturient montes nascetur ridiculus. At auctor urna nunc id cursus metus aliquam eleifend. Sit amet dictum sit amet justo donec enim diam vulputate.
                     </pre>
@@ -232,9 +243,9 @@
             <br>
             <div class="row justify-content-center nectar-frame">
                 <div class="col-md-12">
-                    <pre style="text-align: justify; font-weight: 600" class="nectar-item-title" th:text="${recipeItem.synopsis.recipeSynopsis}">
+                    <p style="text-align: justify; font-weight: 600" class="nectar-item-title" th:text="${recipeItem.synopsis.recipeSynopsis}">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac tincidunt vitae semper quis lectus nulla at. Aliquet sagittis id consectetur purus ut. At tempor commodo ullamcorper a lacus. Gravida in fermentum et sollicitudin ac orci phasellus egestas. At risus viverra adipiscing at. Diam vulputate ut pharetra sit amet. Egestas congue quisque egestas diam in arcu. Augue lacus viverra vitae congue. Ullamcorper sit amet risus nullam eget. Penatibus et magnis dis parturient montes nascetur ridiculus. At auctor urna nunc id cursus metus aliquam eleifend. Sit amet dictum sit amet justo donec enim diam vulputate.
-                    </pre>
+                    </p>
                 </div>
             </div>
 
@@ -252,7 +263,7 @@
         <div class="col-12 text-center">
             <br>
             <br>
-            <a style="text-decoration: none" class="home-button" th:href="@{'/'}" th:text="'<< GO TO MY RECIPES'"><< GO TO MY RECIPES</a>
+            <a class="home-button" th:href="@{'/'}" th:text="'<< GO TO MY RECIPES'"><< GO TO MY RECIPES</a>
             <br>
         </div>
     </div>

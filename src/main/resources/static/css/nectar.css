@@ -223,6 +223,7 @@
     text-transform: uppercase;
     letter-spacing: .4em;
     line-height: 1;
+    text-decoration: none;
 }
 
 .nectar-title-fx{
@@ -362,4 +363,59 @@ input.submit {
     background: url('../resources/images/ambrosialogo-blk.png');
     cursor: pointer;
 }
+
+#recipes td, #recipes th {
+    width: 150px;
+}
+
+.directions-box{
+    display: block;
+    margin: 0 auto;
+    max-width: 40rem;
+    padding: 1rem;
+}
+
+.nectar-ingredient-thumb{
+    width: 200px;
+    height: 200px;
+    opacity: 0.5;
+    border-radius: 20px;
+}
+
+.nectar-ingredient-thumb:hover{
+    opacity: 1;
+}
+
+
+.nectar-ingredient-amount-label{
+    font-family: RalewayMedium, sans-serif;
+    font-size: 33px;
+    padding-bottom: 2px;
+}
+
+.nectar-ingredient-uom-label{
+    font-family: RalewayMedium, sans-serif;
+    font-size: 23px;
+    padding-bottom: 2px;
+}
+
+
+.nectar-ingredient-button{
+    font-size: 24px;
+    font-family: RalewayMedium, sans-serif;
+    background-color: #D4AF37;
+    color: white;
+    border-radius: 18px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+}
+
+.bottom-text-button{
+
+
+}
+
+
+
 

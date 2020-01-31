@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Ingredients | ' + ${recipe.description}">Modus Operandi </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/ambrosialogo-blk.png}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.8.2/css/all.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.8.8/css/mdb.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nectar.css}"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+<div class="container-fluid">
+
+    <h2 class="display-4 recipe-info-title" th:text="${recipe.description}">Recipe Title</h2>
+
+    <h5 class="recipe-info-sub-title" th:text="'INGREDIENTS LIST'">INGREDIENTS LIST</h5>
+
+</div>
+
+<br>
+
+<div class="container mt-4" th:if="${not #lists.isEmpty(recipe.ingredients)}">
+    <div class="row">
+
+        <div class="card card-cascade wider nectar-recipe-card" th:each="ingredient : ${recipe.ingredients}">
+            <div class="view view-cascade overlay">
+                <a><i class="fas fa-pepper-hot fa-lg nectar-icon nectar-recipe-title"></i></a>
+                <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="${ingredient.description}">Ingredient Title</a>
+                <hr class="nectar-line">
+                <a th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body card-body-cascade">
+                <br>
+                <div class="row justify-content-center nectar-frame">
+                    <div class="col-sm-3">
+                        <div class="view overlay">
+                            <img class="card-img-top nectar-ingredient-thumb" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                 alt="ingredient image preview" th:src="${ingredient.thumbUrl}">
+                            <a th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <!--Amount:-->
+                        <h4 class="card-title nectar-ingredient-amount-label" th:text="'Amount: ' + ${ingredient.amount}">Amount: </h4>
+                        <!--Unit Of Measure:-->
+                        <p style="font-size: 23px" class="card-text nectar-ingredient-uom-label" th:text="'Unit Of Measure: ' + ${ingredient.unitOfMeasure.uom}">Unit Of Measure: </p>
+                        <br>&nbsp;
+                        <!--CRUD ops-->
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+                            <button style="background-color: #D4AF37;" class="btn btn-rounded nectar-ingredient-button" th:text="'VIEW'">VIEW</button>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+                                <button style="background-color: #D4AF37;" class="btn btn-rounded nectar-ingredient-button" th:text="'EDIT'">EDIT</button>
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+                                <button style="background-color: #D4AF37;" class="btn btn-rounded nectar-ingredient-button" th:text="'DELETE'">DELETE</button>
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <br>
+            <br>
+            <a class="home-button" th:href="@{'/recipe/modusoperandi/' + ${recipe.id}}" th:text="'<< RETURN TO ' + ${recipe.description} + ' RECIPE'">
+                << RETURN TO RECIPE
+            </a>
+            <br>
+        </div>
+    </div>
+</div>
+
+
+<div class="container footer-logo">
+    <div class="row">
+        <div class="col-12 text-center">
+            <p>
+                <a  th:target="_blank" th:href="${'https://www.emekaegwim.com/'}">
+                    <img src="../static/resources/images/meka-dev-logo.png" th:src="@{/resources/images/meka-dev-logo.png}"
+                         alt="Designed x Developed by Emeka Egwim"/>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

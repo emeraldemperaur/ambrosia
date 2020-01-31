@@ -28,6 +28,7 @@
     <form   th:object="${recipe}" th:action="@{/recipe/}" method="post">
         <input type="hidden" th:field="*{id}" />
 
+
     <!-- Conspectus Card -->
     <div class="card card-cascade wider nectar-recipe-card">
 
@@ -226,7 +227,7 @@
                 <div class="col-sm-9">
                 </div>
                 <div class="col-sm-3">
-                    <a style="color:#ffffff;">
+                    <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
                         <button class="btn nectar-edit-ingredient-button">&nbsp;<i style="font-size: 19px; padding: 5px;" class="fas fa-pepper-hot mr-1"></i> EDIT INGREDIENTS</button>
                     </a>
                 </div>
@@ -239,13 +240,12 @@
                 <div class="col-md-12">
 
                     <ul style="font-weight: 500" class="fa-ul">
-                        <li th:each="ingredient: ${recipe.ingredients}"
-                            th:text="${ingredient.getAmount() + ' ' +
-                            ingredient.unitOfMeasure.getUom() + '' +
-                            ingredient.getDescription()}">
+                        <li th:each="ingredient: ${recipe.ingredients}">
                             <span class="fa-li">
                                 <i class="fas fa-star-half-alt fa-lg nectar-list-item-icon"></i>
-                            </span><a class="nectar-list-item-text" th:text="'Test'">Eguisi Seed</a>
+                            </span><a class="nectar-list-item-text" th:text="${ingredient.getAmount() + ' ' +
+                            ingredient.unitOfMeasure.getUom() + ' of ' +
+                            ingredient.getDescription()}">Eguisi Seed</a>
                         </li>
                         <li th:remove="all">
                             <span class="fa-li">

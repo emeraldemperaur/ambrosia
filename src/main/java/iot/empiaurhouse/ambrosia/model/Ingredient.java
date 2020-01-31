@@ -11,6 +11,7 @@ public class Ingredient {
     private Long id;
     private String description;
     private String altDescription;
+    private String thumbUrl;
     private BigDecimal amount;
 
     @ManyToOne
@@ -70,4 +71,14 @@ public class Ingredient {
     public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
         this.unitOfMeasure = unitOfMeasure;
     }
+
+    public String getThumbUrl() {
+        return thumbUrl;
+    }
+
+    public void setThumbUrl(String thumbUrl) {
+        this.thumbUrl = thumbUrl;
+    }
 }
+
+

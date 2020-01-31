@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -32,7 +32,7 @@ class RecipeControllerTest {
     MockMvc mockMvc;
 
     @BeforeEach
-    void setUp() throws Exception {
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         recipeController = new RecipeController(recipeService);
         recipe = new Recipe();
@@ -52,7 +52,7 @@ class RecipeControllerTest {
     }
 
     @Test
-    void showById() throws Exception {
+    public void showById() throws Exception {
         when(recipeService.findById(anyLong())).thenReturn(recipe);
         mockMvc.perform(get("/recipe/modusoperandi/1"))
                 .andExpect(status().isOk())
@@ -102,6 +102,30 @@ class RecipeControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/recipe/modusoperandi/2"));
     }
+
+    @Test
+    public void testUpdateView() throws Exception{
+        RecipeCommand recipeCommand = new RecipeCommand();
+        recipeCommand.setId(2L);
+        when(recipeService.findCommandById(anyLong())).thenReturn(recipeCommand);
+        mockMvc.perform(get("/recipe/edit/2"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("recipe/recipeeditor"))
+                .andExpect(model().attributeExists("recipe"));
+    }
+
+
+    @Test
+    public void testDeleteRecipe() throws Exception{
+        mockMvc.perform(get("/recipe/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/"));
+
+        verify(recipeService, times(1)).deleteById(anyLong());
+
+    }
+
+
 
 
 
