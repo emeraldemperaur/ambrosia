@@ -66,7 +66,7 @@
                         <br>
                         <!--Avg Total Price:-->
                         <h5 style="font-weight: 600" class="recipe-info-sub-title" th:text="'AVG. UNIT PRICE '">AVG. UNIT PRICE </h5>
-                        <a class="nectar-ingredient-price-value" th:text="'$' + ${ingredient.getAvgUnitPrice}">$23.99</a>
+                        <a class="nectar-ingredient-price-value" th:text="'$' + ${ingredient.getAvgUnitPrice()}">$23.99</a>
 
                         <br>&nbsp;
 
@@ -85,7 +85,7 @@
         <div class="col-12 text-center">
             <br>
             <br>
-            <a class="home-button" th:href="@{'/recipe/' + ${ingredient.getRecipeID()} + '/ingredients' }" th:text="'<< RETURN TO INGREDIENTS LIST'">
+            <a class="home-button" th:href="@{'/recipe/' + ${ingredient.getRecipeID()} + '/ingredients' }" th:text="'<< RETURN TO ' + ${recipeTitle} + ' INGREDIENTS LIST'">
                 << RETURN TO INGREDIENTS LISTS
             </a>
             <br>

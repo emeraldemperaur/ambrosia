@@ -29,6 +29,7 @@
         <input type="hidden" th:field="*{id}" />
 
 
+
     <!-- Conspectus Card -->
     <div class="card card-cascade wider nectar-recipe-card">
 
@@ -37,7 +38,7 @@
             <a><i class="fas fa-utensils fa-lg nectar-icon nectar-recipe-title"></i></a>
             <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Conspectus'">Conspectus</a>
             <hr class="nectar-line">
-            <a href="#!">
+            <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
@@ -84,14 +85,20 @@
                     <div class="col-md-3 form-group" >
                         <a><i class="fas fa-square-root-alt fa-lg conspectus-icon"></i></a>
                         <label style="font-weight: 600" class="nectar-item-title" th:text="'Difficulty '"> Difficulty: </label>
-                        <select class="form-control nectar-item-title">
-                            <option>Easy</option>
-                            <option>Medium</option>
-                            <option>Hard</option>
+                        <select class="form-control nectar-item-title" th:field="*{difficulty}">
+                            <option th:each="difficultyLevel : ${T(iot.empiaurhouse.ambrosia.model.Difficulty).values()}"
+                                    th:value="${difficultyLevel.name()}"
+                                    th:text="${difficultyLevel.name()}">
+                                Easy
+                            </option>
+                            <option th:remove="all">Medium</option>
+                            <option th:remove="all">Hard</option>
                         </select>
                     </div>
 
 
+
+                    <!-- Left content -->
                 </div>
 
                 <div class="col-md-6">
@@ -228,7 +235,7 @@
                 </div>
                 <div class="col-sm-3">
                     <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
-                        <button class="btn nectar-edit-ingredient-button">&nbsp;<i style="font-size: 19px; padding: 5px;" class="fas fa-pepper-hot mr-1"></i> EDIT INGREDIENTS</button>
+                        <button type="button" class="btn nectar-edit-ingredient-button">&nbsp;<i style="font-size: 19px; padding: 5px;" class="fas fa-pepper-hot mr-1"></i> EDIT INGREDIENTS</button>
                     </a>
                 </div>
 
@@ -278,7 +285,7 @@
             <a><i class="fas fa-directions fa-lg nectar-icon nectar-recipe-title"></i></a>
             <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Directions'">Directions</a>
             <hr class="nectar-line">
-            <a href="#!">
+            <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
@@ -312,7 +319,7 @@
             <a><i class="fas fa-info-circle fa-lg nectar-icon nectar-recipe-title"></i></a>
             <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Synopsis'">Synopsis</a>
             <hr class="nectar-line">
-            <a href="#!">
+            <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>

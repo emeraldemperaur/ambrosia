@@ -27,17 +27,30 @@
 
 </div>
 
-<br>
+
+<div class="container mt-4">
+<div class="row" style="padding-bottom: 23px; padding-top: 3px;">
+    <div class="col-sm-9">
+    </div>
+    <div class="col-sm-3 ">
+        <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/add'}">
+            <button style="border-color: #d4af37; color: #d4af37" class="btn nectar-new-ingredient-button waves-effect pull-right">&nbsp;
+                <i style="font-size: 21px;" class="fas fa-plus-circle mr-1"></i> NEW INGREDIENT</button>
+        </a>
+    </div>
+</div>
+</div>
 
 <div class="container mt-4" th:if="${not #lists.isEmpty(recipe.ingredients)}">
-    <div class="row">
 
+
+    <div class="row">
         <div class="card card-cascade wider nectar-recipe-card" th:each="ingredient : ${recipe.ingredients}">
             <div class="view view-cascade overlay">
                 <a><i class="fas fa-pepper-hot fa-lg nectar-icon nectar-recipe-title"></i></a>
                 <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="${ingredient.description}">Ingredient Title</a>
                 <hr class="nectar-line">
-                <a th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+                <a th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id}}">
                     <div class="mask rgba-white-slight"></div>
                 </a>
             </div>
@@ -68,12 +81,12 @@
                             </a>
                         </div>
                         <div class="col-sm-3">
-                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/edit'}">
                                 <button style="background-color: #D4AF37;" class="btn btn-rounded nectar-ingredient-button" th:text="'EDIT'">EDIT</button>
                             </a>
                         </div>
                         <div class="col-sm-3">
-                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">
+                            <a style="color:#ffffff;" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/delete'}">
                                 <button style="background-color: #D4AF37;" class="btn btn-rounded nectar-ingredient-button" th:text="'DELETE'">DELETE</button>
                             </a>
                         </div>

@@ -1,7 +1,5 @@
 package iot.empiaurhouse.ambrosia.controllers;
 
-import iot.empiaurhouse.ambrosia.commandobjects.CategoryCommand;
-import iot.empiaurhouse.ambrosia.commandobjects.CuisineCommand;
 import iot.empiaurhouse.ambrosia.commandobjects.RecipeCommand;
 import iot.empiaurhouse.ambrosia.model.Category;
 import iot.empiaurhouse.ambrosia.model.Cuisine;
@@ -10,7 +8,10 @@ import iot.empiaurhouse.ambrosia.services.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,21 +28,19 @@ public class RecipeController {
         this.recipeService = recipeService;
     }
 
-    @RequestMapping("/recipe/modusoperandi/{id}")
+    @GetMapping("/recipe/modusoperandi/{id}")
     public String showById(@PathVariable String id, Model model){
         log.debug("Request was made for Recipe w/ UID:" + id);
 
         model.addAttribute("recipeItem", recipeService.findById(Long.valueOf(id)));
         model.addAttribute("cuisineTitle",getSingleCuisineTitle(id));
-        //model.addAttribute("cuisineTitle",getSingleCuisineCommandTitle(id));
         model.addAttribute("categoryTitle",getSingleCategoryTitle(id));
-        //model.addAttribute("categoryTitle",getSingleCategoryCommandTitle(id));
         model.addAttribute("directionsList", directionsList(id));
 
         return "recipe/modusoperandi";
     }
 
-    @RequestMapping("recipe/create")
+    @GetMapping("recipe/create")
     public String newRecipe(Model recipeModel){
         recipeModel.addAttribute("recipe", new RecipeCommand());
         recipeModel.addAttribute("title","NEW RECIPE");
@@ -50,7 +49,7 @@ public class RecipeController {
         return "recipe/recipeeditor";
     }
 
-    @RequestMapping("recipe/edit/{id}")
+    @GetMapping("recipe/edit/{id}")
     public String editRecipe(@PathVariable String id, Model editRecipeModel){
         editRecipeModel.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(id)));
         editRecipeModel.addAttribute("title",getEditRecipeTitle(id));
@@ -61,16 +60,16 @@ public class RecipeController {
     }
 
 
-    @PostMapping
-    @RequestMapping("recipe")
+
+    @PostMapping("recipe")
     public String saveOrUpdate(@ModelAttribute RecipeCommand recipeCommand){
         RecipeCommand storedRecipeObject = recipeService.saveRecipeCommandObject(recipeCommand);
         System.out.println("saveOrUpdate() POST!!!");
         return "redirect:/recipe/modusoperandi/" + storedRecipeObject.getId();
     }
 
-    @GetMapping
-    @RequestMapping("recipe/delete/{id}")
+
+    @GetMapping("recipe/delete/{id}")
     public String deleteById(@PathVariable String id){
 
         log.debug("Deleting id: " + id);
@@ -90,23 +89,6 @@ public class RecipeController {
         return cuisineIter.getCuisineDescription();
     }
 
-    private String getSingleCuisineCommandTitle(String recipeID){
-        RecipeCommand selectedRecipe = recipeService.findCommandById(Long.valueOf(recipeID));
-        CuisineCommand nullCuisine = new CuisineCommand();
-        nullCuisine.setCuisineDescription("No Description Found For");
-        Set<CuisineCommand> recipeCuisines = selectedRecipe.getCuisines();
-        CuisineCommand cuisineIter = recipeCuisines.stream().findFirst().orElse(nullCuisine);
-        return cuisineIter.getCuisineDescription();
-    }
-
-    private String getSingleCategoryCommandTitle(String recipeID){
-        RecipeCommand selectedRecipe = recipeService.findCommandById(Long.valueOf(recipeID));
-        CategoryCommand nullCategory = new CategoryCommand();
-        nullCategory.setCategoryDescription("No Category");
-        Set<CategoryCommand> recipeCategories = selectedRecipe.getCategories();
-        CategoryCommand categoryIter = recipeCategories.stream().findFirst().orElse(nullCategory);
-        return categoryIter.getCategoryDescription();
-    }
 
     private String getSingleCategoryTitle(String recipeID){
         Recipe selectedRecipe = recipeService.findById(Long.valueOf(recipeID));

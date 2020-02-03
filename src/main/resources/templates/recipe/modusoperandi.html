@@ -27,6 +27,36 @@
 
     <h5 class="recipe-info-sub-title" th:text="${cuisineTitle} + ' Cuisine'">Nigerian Cuisine</h5>
 
+</div>
+
+
+<div style="margin-top: -9px;" class="container-fluid">
+    <div  class="row">
+        <div class="col-sm-8">
+        </div>
+        <div class="col-sm-4 ">
+
+            <div style="border-radius: 5px; margin-bottom: 23px; display: inline-block;"  class="card pull-right">
+                <div class="card-body nectar-img-card justify-content-center">
+                    <a th:href="@{'/recipe/' + ${recipeItem.id} + '/img'}">
+                        <span tooltip="Change Recipe Image" flow="down">
+                    <img class="card-img-top nectar-recipe-img" th:src="@{'/recipe/' + ${recipeItem.id} + '/getimage'}"
+                         onerror="this.src='https://mdbootstrap.com/img/Photos/Others/images/16.jpg';"
+                         src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                         alt="ingredient image" width="300px" height="300px" /></span>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
     <!-- Conspectus Card -->
 
     <div class="card card-cascade wider nectar-recipe-card">
@@ -36,7 +66,7 @@
             <a><i class="fas fa-utensils fa-lg nectar-icon nectar-recipe-title"></i></a>
             <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Conspectus'">Conspectus</a>
             <hr class="nectar-line">
-            <a href="#!">
+            <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
@@ -77,6 +107,8 @@
                     <div class="col-md-3" >
                         <a class="nectar-item-value" th:text="${recipeItem.preference}">10</a>
                     </div>
+
+
 
                 </div>
 
@@ -132,7 +164,7 @@
             <a><i class="fas fa-pepper-hot fa-lg nectar-icon nectar-recipe-title"></i></a>
             <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Ingredients'">Ingredients</a>
             <hr class="nectar-line">
-            <a href="#!">
+            <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
@@ -193,13 +225,13 @@
             <a><i class="fas fa-directions fa-lg nectar-icon nectar-recipe-title"></i></a>
             <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Directions'">Directions</a>
             <hr class="nectar-line">
-            <a href="#!">
+            <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
 
         <!-- Card content -->
-        <div class="card-body card-body-cascade">
+        <div style="text-align: justify;" class="card-body card-body-cascade">
 
             <br>
             <div class="row justify-content-center nectar-frame">
@@ -232,7 +264,7 @@
             <a><i class="fas fa-info-circle fa-lg nectar-icon nectar-recipe-title"></i></a>
             <a style="color: #787878" class="recipe-panel-text nectar-hue" th:text="'Synopsis'">Synopsis</a>
             <hr class="nectar-line">
-            <a href="#!">
+            <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>

@@ -1,10 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="'Ingredients Editor'">Edit | Ingredients </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/ambrosialogo-blk.png}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.8.2/css/all.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.8.8/css/mdb.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nectar.css}"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
 </head>
 <body>
 
+
+<div class="container-fluid">
+
+    <h2 class="display-4 recipe-info-title" th:text="${title}">Edit Ingredient</h2>
+
+    <h5 class="recipe-info-sub-title" th:text="${subtitle}">Enter Ingredient Details</h5>
+
+</div>
+
+<div class="container-fluid">
+<!--/*@thymesVar id="ingredient" type="iot.empiaurhouse.ambrosia.commandobjects.IngredientCommand"*/-->
+<form  th:object="${ingredient}" th:action="@{'/recipe/' + ${ingredient.getRecipeID()} + '/ingredient'} " method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="hidden" th:field="*{recipeID}"/>
+
+
+    <!-- Ingredient Editor Card -->
+    <div class="card card-cascade wider nectar-recipe-card">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+            <a><i class="fas fa-pepper-hot fa-lg nectar-icon nectar-recipe-title"></i></a>
+            <a style="color: #787878" class="recipe-panel-text nectar-hue"></a>
+            <hr class="nectar-line">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+
+            <br>
+            <div class="row justify-content-center nectar-frame">
+                <div class="col-md-6">
+                    <!-- Left content -->
+
+                    <div class="col-md-6 form-group" >
+                        <a><i class="fas fa-feather fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Ingredient Name '">Ingredient Name </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{description}" />
+
+                    </div>
+                    <div class="col-md-6 form-group" >
+                        <a><i class="fas fa-terminal fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Alternate Name '">Alternate Name  </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{altDescription}" />
+
+                    </div>
+
+                    <div class="col-md-3 form-group" >
+                        <a><i class="fas fa-cubes fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Amount '">Amount </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{amount}" />
+                    </div>
+
+                    <div class="col-md-3 form-group" >
+                        <a><i class="fas fa-hand-holding-usd fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Unit Price '">Unit Price </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{avgUnitPrice}" />
+                    </div>
+
+                    <div class="col-md-6 form-group" >
+                        <a><i class="fas fa-image fa-lg conspectus-icon"></i></a>
+                        <label style="font-weight: 600" class="nectar-item-title" th:text="'Preview URL '">Preview URL </label>
+                        <input type="text" class="form-control nectar-input" th:field="*{thumbUrl}" />
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="col-md-6">
+                    <!-- Right content -->
+                    <div style="border-radius: 5px;" class="card">
+
+                        <div class="card-body nectar-edit-ingredient-inner-card">
+                            <div class="row">
+
+                            <div  class="col-md-6 form-group" >
+                                <a><i class="fas fa-balance-scale fa-lg conspectus-icon"></i></a>
+                                <label style="font-weight: 600" class="nectar-item-title" th:text="'Unit Of Measure '">Unit Of Measure </label>
+                                <select class="form-control nectar-item-title" name="unitOfMeasure.id">
+                                    <option th:each="UoM : ${unitsOfMeasureList}"
+                                            th:value="${UoM.id}"
+                                            th:selected="${UoM.id.equals(ingredient.unitOfMeasure.id)}"
+                                            th:text="${UoM.uom}">Easy</option>
+                                    <option th:remove="all">Medium</option>
+                                    <option th:remove="all">Hard</option>
+
+                                </select>
+                            </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right content -->
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /Ingredient Editor Card -->
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <br>
+            <br>
+            <button type="submit" style="background-color: #D4AF37;" class="btn nectar-submit-button" th:text="${buttonText}">SAVE INGREDIENT</button>
+            <br>
+            <br>
+        </div>
+    </div>
+
+</form>
+</div>
+
+
+<div class="container footer-logo">
+    <div class="row">
+        <div class="col-12 text-center">
+            <p>
+                <a  th:target="_blank" th:href="${'https://www.emekaegwim.com/'}">
+                    <img src="../static/resources/images/meka-dev-logo.png" th:src="@{/resources/images/meka-dev-logo.png}"
+                         alt="Designed x Developed by Emeka Egwim"/>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

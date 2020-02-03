@@ -53,7 +53,7 @@
     <tr th:each="recipe:${recipes}">
         <td class="nectar-text" th:text="${recipe.id}">123</td>
         <td class="nectar-text" th:text="${recipe.description}">Description</td>
-        <td class="nectar-text cook-time" th:text="${recipe.cookTime.toString() + ' minutes'}">Cook Time</td>
+        <td class="nectar-text cook-time" th:text="${recipe.cookTime + ' minutes'}">Cook Time</td>
         <td class="nectar-text cook-time" th:text="${recipe.prepTime + ' minutes'}">Prep Time</td>
         <td class="nectar-text" th:text="${recipe.originator}">Originator</td>
 

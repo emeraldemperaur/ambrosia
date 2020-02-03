@@ -2,6 +2,7 @@ package iot.empiaurhouse.ambrosia.objectconverters;
 
 import iot.empiaurhouse.ambrosia.commandobjects.IngredientCommand;
 import iot.empiaurhouse.ambrosia.model.Ingredient;
+import iot.empiaurhouse.ambrosia.model.Recipe;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
@@ -26,6 +27,13 @@ public class IngredientCommandToIngredient implements Converter<IngredientComman
 
         final Ingredient ingredient = new Ingredient();
         ingredient.setId(ingredientCommand.getId());
+
+        if (ingredientCommand.getRecipeID() != null){
+            Recipe recipe = new Recipe();
+            recipe.setId(ingredientCommand.getRecipeID());
+            ingredient.setRecipe(recipe);
+            recipe.addIngredient(ingredient);
+        }
         ingredient.setAmount(ingredientCommand.getAmount());
         ingredient.setAvgUnitPrice(ingredientCommand.getAvgUnitPrice());
         ingredient.setDescription(ingredientCommand.getDescription());
