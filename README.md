@@ -25,9 +25,10 @@ Built using using Java, Spring, Spring Boot, Thymeleaf, Material Design, Hiberna
 
 &nbsp;
 ### System Requirements
-TBD
+
+<br><br>
 
 &nbsp;
 ![alt text](ambrosiscreenshotdemo2.png)
-&nbsp;
+&nbsp;<br><br>
 ![alt text](ambrosiscreenshotdemo1.png)
